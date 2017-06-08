@@ -15,6 +15,8 @@
   License along with NeoPixel.  If not, see
   <http://www.gnu.org/licenses/>.
   --------------------------------------------------------------------*/
+#include "Timer.h"
+#include "TimerZero.h"
 
 #ifndef ADAFRUIT_NEOPIXEL_H
 #define ADAFRUIT_NEOPIXEL_H
@@ -146,7 +148,7 @@ class Adafruit_NeoPixel {
   uint32_t
     getPixelColor(uint16_t n) const;
   inline bool
-    canShow(void) { return (micros() - endTime) >= 300L; }
+    canShow(void) { return (TimerZero::getInstance().micros() - endTime) >= 300L; }
 
  private:
 
